@@ -1,0 +1,129 @@
+WITH ApexLocation AS
+(
+    SELECT
+        l.sKey,
+        l.CreateDate,
+        l.CreateTime,
+        l.IsRIIMCompliant,
+        l.CityName,
+        l.State_sKey,
+        l.StateOrTerritoryAbbreviation,
+        l.CountyName,
+        l.FIPSCountyCode,
+        l.InternationalAddressIndicator,
+
+        CASE
+            WHEN NULLIF(LTRIM(RTRIM(l.ZipCodePart1)), '') IS NOT NULL
+             AND NULLIF(LTRIM(RTRIM(l.ZipCodePart2)), '') IS NOT NULL
+                THEN CONCAT(
+                    NULLIF(LTRIM(RTRIM(l.ZipCodePart1)), ''),
+                    '-',
+                    NULLIF(LTRIM(RTRIM(l.ZipCodePart2)), '')
+                )
+
+            WHEN NULLIF(LTRIM(RTRIM(l.ZipCodePart1)), '') IS NOT NULL
+                THEN NULLIF(LTRIM(RTRIM(l.ZipCodePart1)), '')
+
+            ELSE NULL
+        END AS PostalCode,
+
+        l.TerritoryCode,
+        l.FireDistrictCode,
+        l.Address1,
+        l.Address2,
+
+        'APEX' AS SourceSystemCode,
+        l.sKey AS SourceLocationId
+    FROM dbo.Location_Dim l
+),
+
+CDHLocation AS
+(
+    SELECT
+        NULL AS sKey,
+
+        CAST(a.CreateTimestamp AS date) AS CreateDate,
+        CAST(a.CreateTimestamp AS time) AS CreateTime,
+
+        NULL AS IsRIIMCompliant,
+
+        NULLIF(LTRIM(RTRIM(a.City)), '') AS CityName,
+
+        NULL AS State_sKey,
+
+        NULLIF(LTRIM(RTRIM(a.State)), '') AS StateOrTerritoryAbbreviation,
+
+        NULLIF(LTRIM(RTRIM(a.County)), '') AS CountyName,
+
+        NULL AS FIPSCountyCode,
+
+        NULL AS InternationalAddressIndicator,
+
+        NULLIF(LTRIM(RTRIM(a.PostalCode)), '') AS PostalCode,
+
+        NULL AS TerritoryCode,
+
+        NULL AS FireDistrictCode,
+
+        NULLIF(LTRIM(RTRIM(a.Line1)), '') AS Address1,
+
+        NULLIF(LTRIM(RTRIM(
+            CONCAT(
+                ISNULL(NULLIF(LTRIM(RTRIM(a.Line2)), ''), ''),
+                CASE
+                    WHEN NULLIF(LTRIM(RTRIM(a.Line2)), '') IS NOT NULL
+                     AND NULLIF(LTRIM(RTRIM(a.Line3)), '') IS NOT NULL
+                    THEN ' '
+                    ELSE ''
+                END,
+                ISNULL(NULLIF(LTRIM(RTRIM(a.Line3)), ''), '')
+            )
+        )), '') AS Address2,
+
+        'CDH' AS SourceSystemCode,
+        a.AddressId AS SourceLocationId
+    FROM pol.Address a
+    WHERE NULLIF(LTRIM(RTRIM(a.Line1)), '') IS NOT NULL
+)
+
+SELECT
+    sKey,
+    CreateDate,
+    CreateTime,
+    IsRIIMCompliant,
+    CityName,
+    State_sKey,
+    StateOrTerritoryAbbreviation,
+    CountyName,
+    FIPSCountyCode,
+    InternationalAddressIndicator,
+    PostalCode,
+    TerritoryCode,
+    FireDistrictCode,
+    Address1,
+    Address2,
+    SourceSystemCode,
+    SourceLocationId
+FROM ApexLocation
+
+UNION ALL
+
+SELECT
+    sKey,
+    CreateDate,
+    CreateTime,
+    IsRIIMCompliant,
+    CityName,
+    State_sKey,
+    StateOrTerritoryAbbreviation,
+    CountyName,
+    FIPSCountyCode,
+    InternationalAddressIndicator,
+    PostalCode,
+    TerritoryCode,
+    FireDistrictCode,
+    Address1,
+    Address2,
+    SourceSystemCode,
+    SourceLocationId
+FROM CDHLocation;

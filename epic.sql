@@ -1,3 +1,131 @@
+;WITH RankedDischargeNote AS
+(
+    SELECT
+        h.PAT_ENC_CSN_ID,
+        h.NOTE_ID,
+        h.IP_NOTE_TYPE_C,
+        h.CREATE_INSTANT_DTTM,
+        h.DATE_OF_SERVICE_DTTM,
+
+        ROW_NUMBER() OVER
+        (
+            PARTITION BY h.PAT_ENC_CSN_ID
+            ORDER BY
+                COALESCE(
+                    h.DATE_OF_SERVICE_DTTM,
+                    h.CREATE_INSTANT_DTTM
+                ) DESC,
+                h.NOTE_ID DESC
+        ) AS RN
+    FROM dbo.HNO_INFO h
+    WHERE h.IP_NOTE_TYPE_C = 5
+),
+DischargeNote AS
+(
+    SELECT
+        r.PAT_ENC_CSN_ID,
+        r.NOTE_ID,
+        r.IP_NOTE_TYPE_C,
+        r.CREATE_INSTANT_DTTM,
+        r.DATE_OF_SERVICE_DTTM,
+
+        STRING_AGG(
+            CAST(t.NOTE_TEXT AS VARCHAR(MAX)),
+            CHAR(13) + CHAR(10)
+        ) WITHIN GROUP
+        (
+            ORDER BY t.LINE
+        ) AS DISCHARGE_NOTE_TEXT
+
+    FROM RankedDischargeNote r
+
+    INNER JOIN dbo.HNO_NOTE_TEXT t
+        ON r.NOTE_ID = t.NOTE_ID
+
+    WHERE r.RN = 1
+
+    GROUP BY
+        r.PAT_ENC_CSN_ID,
+        r.NOTE_ID,
+        r.IP_NOTE_TYPE_C,
+        r.CREATE_INSTANT_DTTM,
+        r.DATE_OF_SERVICE_DTTM
+),
+MedicationSource AS
+(
+    SELECT DISTINCT
+        ORDER_MED_ID,
+        ORDER_SOURCE_C
+    FROM dbo.ORDER_MEDINFO
+    WHERE ORDER_SOURCE_C IN (41, 42, 54, 3)
+)
+SELECT
+    peh.PAT_ID,
+    peh.PAT_ENC_CSN_ID,
+    p.PAT_MRN_ID,
+
+    peh.DISCH_DISP_C,
+    dd.NAME AS DISCH_DISP_NAME,
+    peh.HOSP_DISCH_TIME,
+
+    dn.NOTE_ID,
+    dn.IP_NOTE_TYPE_C,
+    c.NAME AS NOTE_TYPE_NAME,
+    dn.CREATE_INSTANT_DTTM,
+    dn.DATE_OF_SERVICE_DTTM,
+    dn.DISCHARGE_NOTE_TEXT,
+
+    om.ORDER_MED_ID,
+    om.ORDERING_DATE,
+    om.DESCRIPTION AS MEDICAL_DESCRIPTION,
+    om.DOSAGE,
+    om.QUANTITY,
+    om.REFILLS,
+    om.START_DATE,
+    om.END_DATE,
+    om.MDL_ID,
+    om.AMB_MED_DISP_NAME,
+    om.DISP_AS_WRITTEN_YN,
+    om.ORDER_STATUS_C,
+
+    ms.ORDER_SOURCE_C,
+    s.NAME AS ORDER_SOURCE_NAME
+
+FROM dbo.PAT_ENC_HSP peh
+
+INNER JOIN DischargeNote dn
+    ON peh.PAT_ENC_CSN_ID = dn.PAT_ENC_CSN_ID
+
+INNER JOIN dbo.ORDER_MED om
+    ON peh.PAT_ENC_CSN_ID = om.PAT_ENC_CSN_ID
+
+INNER JOIN MedicationSource ms
+    ON om.ORDER_MED_ID = ms.ORDER_MED_ID
+
+LEFT JOIN dbo.ZC_ORDER_SOURCE s
+    ON ms.ORDER_SOURCE_C = s.ORDER_SOURCE_C
+
+LEFT JOIN dbo.ZC_NOTE_TYPE_IP c
+    ON dn.IP_NOTE_TYPE_C = c.TYPE_IP_C
+
+LEFT JOIN dbo.ZC_DISCH_DISP dd
+    ON peh.DISCH_DISP_C = dd.DISCH_DISP_C
+
+LEFT JOIN dbo.PATIENT p
+    ON peh.PAT_ID = p.PAT_ID
+
+WHERE peh.PAT_ID = '21485914'
+
+-- Use this while validating one hospitalization:
+-- AND peh.PAT_ENC_CSN_ID = 179617816
+
+ORDER BY
+    peh.HOSP_DISCH_TIME DESC,
+    om.ORDERING_DATE DESC,
+    om.ORDER_MED_ID;
+
+
+
 DECLARE @PAT_ID VARCHAR(18) = '00925869';
 
 SELECT DISTINCT

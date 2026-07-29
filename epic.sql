@@ -1,3 +1,49 @@
+LEFT JOIN
+(
+    SELECT
+        A.PAT_ENC_CSN_ID,
+        MAX(A.CREATE_INSTANT_DTTM) AS CREATE_INSTANT_DTTM,
+
+        STRING_AGG
+        (
+            ISNULL(
+                CONVERT(NVARCHAR(MAX), B.NOTE_TEXT),
+                N''
+            ),
+            NCHAR(13) + NCHAR(10)
+        ) WITHIN GROUP
+        (
+            ORDER BY B.LINE
+        ) AS NOTE_TEXT
+
+    FROM dbo.HNO_INFO A
+    INNER JOIN dbo.HNO_NOTE_TEXT B
+        ON A.NOTE_ID = B.NOTE_ID
+
+    WHERE A.IP_NOTE_TYPE_C = '5'
+
+    GROUP BY
+        A.PAT_ENC_CSN_ID
+) n
+    ON peh.PAT_ENC_CSN_ID = n.PAT_ENC_CSN_ID
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;WITH RankedDischargeNote AS
 (
     SELECT

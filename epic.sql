@@ -2,6 +2,60 @@ REPLACE(
     REPLACE(
         REPLACE(
             REPLACE(
+                REPLACE(
+                    REPLACE(
+                        REPLACE(
+                            [Formatted Discharge Note - Part 1],
+
+                            "DISPOSITION / INSTRUCTIONS",
+                            CHAR(10) + CHAR(10) +
+                            "DISPOSITION / INSTRUCTIONS" +
+                            CHAR(10)
+                        ),
+
+                        "DISPOSITION/INSTRUCTIONS",
+                        CHAR(10) + CHAR(10) +
+                        "DISPOSITION / INSTRUCTIONS" +
+                        CHAR(10)
+                    ),
+
+                    "Disposition:",
+                    CHAR(10) +
+                    "Disposition:"
+                ),
+
+                "Medication Orders (From admission, onward)",
+                CHAR(10) + CHAR(10) +
+                "MEDICATION ORDERS" +
+                CHAR(10)
+            ),
+
+            "Discharge Orders/Instructions",
+            CHAR(10) + CHAR(10) +
+            "DISCHARGE ORDERS / INSTRUCTIONS" +
+            CHAR(10)
+        ),
+
+        "DISCHARGE MEDICATIONS",
+        CHAR(10) + CHAR(10) +
+        "DISCHARGE MEDICATIONS" +
+        CHAR(10)
+    ),
+
+    "PCP/PROVIDER FOLLOW-UP ITEMS",
+    CHAR(10) + CHAR(10) +
+    "PCP / PROVIDER FOLLOW-UP ITEMS" +
+    CHAR(10)
+)
+
+
+
+
+
+REPLACE(
+    REPLACE(
+        REPLACE(
+            REPLACE(
                 [DISCHARGE_NOTE_TEXT],
                 "Diagnoses:",
                 CHAR(10) + CHAR(10) +

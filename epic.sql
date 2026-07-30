@@ -1,5 +1,283 @@
 REPLACE(
     REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    REPLACE(
+    IFNULL([DISCHARGE_NOTE_TEXT], ""),
+
+    "DISCHARGE DIAGNOSES:",
+    "~H_DX~"
+),
+    "DISCHARGE DIAGNOSES",
+    "~H_DX~"
+),
+    "Discharge DIAGNOSES:",
+    "~H_DX~"
+),
+    "Discharge DIAGNOSES",
+    "~H_DX~"
+),
+    "Discharge Diagnoses:",
+    "~H_DX~"
+),
+    "Discharge Diagnoses",
+    "~H_DX~"
+),
+    "PROCEDURES:",
+    "~H_PROC~"
+),
+    "PROCEDURES",
+    "~H_PROC~"
+),
+    "CLINICAL INDICATION:",
+    "~H_CLIN~"
+),
+    "CLINICAL INDICATION",
+    "~H_CLIN~"
+),
+    "FINDINGS:",
+    "~H_FIND~"
+),
+    "FINDINGS",
+    "~H_FIND~"
+),
+    "IMPRESSION:",
+    "~H_IMPR~"
+),
+    "IMPRESSION",
+    "~H_IMPR~"
+),
+    "DISCHARGE MEDICATIONS:",
+    "~H_MED~"
+),
+    "DISCHARGE MEDICATIONS",
+    "~H_MED~"
+),
+    "Discharge Medications:",
+    "~H_MED~"
+),
+    "Discharge Medications",
+    "~H_MED~"
+),
+    "MEDICATIONS AT DISCHARGE:",
+    "~H_MED~"
+),
+    "MEDICATIONS AT DISCHARGE",
+    "~H_MED~"
+),
+    "DISCHARGE SUMMARY",
+    CHAR(10) + CHAR(10) +
+    "DISCHARGE SUMMARY" +
+    CHAR(10)
+),
+    "Principal Problem:",
+    CHAR(10) +
+    "PRINCIPAL PROBLEM:" +
+    CHAR(10)
+),
+    "Active Problems:",
+    CHAR(10) +
+    "ACTIVE PROBLEMS:" +
+    CHAR(10)
+),
+    "REASON FOR HOSPITALIZATION",
+    CHAR(10) + CHAR(10) +
+    "REASON FOR HOSPITALIZATION" +
+    CHAR(10)
+),
+    "HOSPITAL COURSE",
+    CHAR(10) + CHAR(10) +
+    "HOSPITAL COURSE" +
+    CHAR(10)
+),
+    "PHYSICAL EXAM",
+    CHAR(10) + CHAR(10) +
+    "PHYSICAL EXAM" +
+    CHAR(10)
+),
+    "RECENT IMAGING AND RECENT LABS",
+    CHAR(10) + CHAR(10) +
+    "RECENT IMAGING AND RECENT LABS" +
+    CHAR(10)
+),
+    "DISPOSITION / INSTRUCTIONS",
+    CHAR(10) + CHAR(10) +
+    "DISPOSITION / INSTRUCTIONS" +
+    CHAR(10)
+),
+    "DISPOSITION/INSTRUCTIONS",
+    CHAR(10) + CHAR(10) +
+    "DISPOSITION / INSTRUCTIONS" +
+    CHAR(10)
+),
+    "Disposition:",
+    CHAR(10) +
+    "DISPOSITION:" +
+    CHAR(10)
+),
+    "Medication Orders (From admission, onward)",
+    CHAR(10) + CHAR(10) +
+    "MEDICATION ORDERS" +
+    CHAR(10)
+),
+    "Discharge Orders/Instructions",
+    CHAR(10) + CHAR(10) +
+    "DISCHARGE ORDERS / INSTRUCTIONS" +
+    CHAR(10)
+),
+    "Current Discharge Medication List",
+    CHAR(10) +
+    "CURRENT DISCHARGE MEDICATION LIST" +
+    CHAR(10)
+),
+    "START taking these medications",
+    CHAR(10) + CHAR(10) +
+    "START TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+    "CONTINUE these medications which have CHANGED",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE - CHANGED MEDICATIONS" +
+    CHAR(10)
+),
+    "CONTINUE these medications which have NOT CHANGED",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE - UNCHANGED MEDICATIONS" +
+    CHAR(10)
+),
+    "STOP taking these medications",
+    CHAR(10) + CHAR(10) +
+    "STOP TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+    "PCP/PROVIDER FOLLOW-UP ITEMS",
+    CHAR(10) + CHAR(10) +
+    "PCP / PROVIDER FOLLOW-UP ITEMS" +
+    CHAR(10)
+),
+    "Follow-up:",
+    CHAR(10) + CHAR(10) +
+    "FOLLOW-UP" +
+    CHAR(10)
+),
+    "~H_DX~",
+    CHAR(10) + CHAR(10) +
+    "DISCHARGE DIAGNOSES" +
+    CHAR(10)
+),
+    "~H_PROC~",
+    CHAR(10) + CHAR(10) +
+    "PROCEDURES" +
+    CHAR(10)
+),
+    "~H_CLIN~",
+    CHAR(10) + CHAR(10) +
+    "CLINICAL INDICATION" +
+    CHAR(10)
+),
+    "~H_FIND~",
+    CHAR(10) + CHAR(10) +
+    "FINDINGS" +
+    CHAR(10)
+),
+    "~H_IMPR~",
+    CHAR(10) + CHAR(10) +
+    "IMPRESSION" +
+    CHAR(10)
+),
+    "~H_MED~",
+    CHAR(10) + CHAR(10) +
+    "DISCHARGE MEDICATIONS" +
+    CHAR(10)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REPLACE(
+    REPLACE(
         REPLACE(
             REPLACE(
                 REPLACE(

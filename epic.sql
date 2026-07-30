@@ -5,46 +5,124 @@ REPLACE(
                 REPLACE(
                     REPLACE(
                         REPLACE(
-                            [Formatted Discharge Note - Part 1],
-
-                            "DISPOSITION / INSTRUCTIONS",
-                            CHAR(10) + CHAR(10) +
-                            "DISPOSITION / INSTRUCTIONS" +
+                            REPLACE(
+                                REPLACE(
+                                    REPLACE(
+                                        REPLACE(
+                                            REPLACE(
+                                                REPLACE(
+                                                    REPLACE(
+                                                        REPLACE(
+                                                            REPLACE(
+                                                                REPLACE(
+                                                                    REPLACE(
+                                                                        REPLACE(
+                                                                            REPLACE(
+                                                                                REPLACE(
+                                                                                    IFNULL([DISCHARGE_NOTE_TEXT], ""),
+                                                                                    "DISCHARGE SUMMARY",
+                                                                                    CHAR(10) + CHAR(10) +
+                                                                                    "DISCHARGE SUMMARY" +
+                                                                                    CHAR(10)
+                                                                                ),
+                                                                                "DIAGNOSES:",
+                                                                                CHAR(10) + CHAR(10) +
+                                                                                "DIAGNOSES" +
+                                                                                CHAR(10)
+                                                                            ),
+                                                                            "Diagnoses:",
+                                                                            CHAR(10) + CHAR(10) +
+                                                                            "DIAGNOSES" +
+                                                                            CHAR(10)
+                                                                        ),
+                                                                        "Principal Problem:",
+                                                                        CHAR(10) +
+                                                                        "PRINCIPAL PROBLEM:" +
+                                                                        CHAR(10)
+                                                                    ),
+                                                                    "Active Problems:",
+                                                                    CHAR(10) +
+                                                                    "ACTIVE PROBLEMS:" +
+                                                                    CHAR(10)
+                                                                ),
+                                                                "PROCEDURES:",
+                                                                CHAR(10) + CHAR(10) +
+                                                                "PROCEDURES" +
+                                                                CHAR(10)
+                                                            ),
+                                                            "CLINICAL INDICATION:",
+                                                            CHAR(10) + CHAR(10) +
+                                                            "CLINICAL INDICATION" +
+                                                            CHAR(10)
+                                                        ),
+                                                        "FINDINGS:",
+                                                        CHAR(10) + CHAR(10) +
+                                                        "FINDINGS" +
+                                                        CHAR(10)
+                                                    ),
+                                                    "IMPRESSION:",
+                                                    CHAR(10) + CHAR(10) +
+                                                    "IMPRESSION" +
+                                                    CHAR(10)
+                                                ),
+                                                "REASON FOR HOSPITALIZATION",
+                                                CHAR(10) + CHAR(10) +
+                                                "REASON FOR HOSPITALIZATION" +
+                                                CHAR(10)
+                                            ),
+                                            "HOSPITAL COURSE",
+                                            CHAR(10) + CHAR(10) +
+                                            "HOSPITAL COURSE" +
+                                            CHAR(10)
+                                        ),
+                                        "PHYSICAL EXAM",
+                                        CHAR(10) + CHAR(10) +
+                                        "PHYSICAL EXAM" +
+                                        CHAR(10)
+                                    ),
+                                    "DISPOSITION / INSTRUCTIONS",
+                                    CHAR(10) + CHAR(10) +
+                                    "DISPOSITION / INSTRUCTIONS" +
+                                    CHAR(10)
+                                ),
+                                "DISPOSITION/INSTRUCTIONS",
+                                CHAR(10) + CHAR(10) +
+                                "DISPOSITION / INSTRUCTIONS" +
+                                CHAR(10)
+                            ),
+                            "Disposition:",
+                            CHAR(10) +
+                            "DISPOSITION:" +
                             CHAR(10)
                         ),
-
-                        "DISPOSITION/INSTRUCTIONS",
+                        "Medication Orders (From admission, onward)",
                         CHAR(10) + CHAR(10) +
-                        "DISPOSITION / INSTRUCTIONS" +
+                        "MEDICATION ORDERS" +
                         CHAR(10)
                     ),
-
-                    "Disposition:",
-                    CHAR(10) +
-                    "Disposition:"
+                    "Discharge Orders/Instructions",
+                    CHAR(10) + CHAR(10) +
+                    "DISCHARGE ORDERS / INSTRUCTIONS" +
+                    CHAR(10)
                 ),
-
-                "Medication Orders (From admission, onward)",
+                "DISCHARGE MEDICATIONS",
                 CHAR(10) + CHAR(10) +
-                "MEDICATION ORDERS" +
+                "DISCHARGE MEDICATIONS" +
                 CHAR(10)
             ),
-
-            "Discharge Orders/Instructions",
+            "Discharge Medications:",
             CHAR(10) + CHAR(10) +
-            "DISCHARGE ORDERS / INSTRUCTIONS" +
+            "DISCHARGE MEDICATIONS" +
             CHAR(10)
         ),
-
-        "DISCHARGE MEDICATIONS",
+        "PCP/PROVIDER FOLLOW-UP ITEMS",
         CHAR(10) + CHAR(10) +
-        "DISCHARGE MEDICATIONS" +
+        "PCP / PROVIDER FOLLOW-UP ITEMS" +
         CHAR(10)
     ),
-
-    "PCP/PROVIDER FOLLOW-UP ITEMS",
+    "Follow-up:",
     CHAR(10) + CHAR(10) +
-    "PCP / PROVIDER FOLLOW-UP ITEMS" +
+    "FOLLOW-UP" +
     CHAR(10)
 )
 

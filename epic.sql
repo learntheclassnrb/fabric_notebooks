@@ -1,3 +1,34 @@
+REPLACE(
+    REPLACE(
+        REPLACE(
+            REPLACE(
+                [DISCHARGE_NOTE_TEXT],
+                "Diagnoses:",
+                CHAR(10) + CHAR(10) +
+                "DIAGNOSES" + CHAR(10)
+            ),
+            "CLINICAL INDICATION:",
+            CHAR(10) + CHAR(10) +
+            "CLINICAL INDICATION" + CHAR(10)
+        ),
+        "FINDINGS:",
+        CHAR(10) + CHAR(10) +
+        "FINDINGS" + CHAR(10)
+    ),
+    "IMPRESSION:",
+    CHAR(10) + CHAR(10) +
+    "IMPRESSION" + CHAR(10)
+)
+
+
+
+
+
+
+
+
+
+
 LEFT JOIN
 (
     SELECT

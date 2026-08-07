@@ -59,6 +59,67 @@ REPLACE(
 
 
 
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+
+    /* YOUR ENTIRE CURRENT WORKING CALCULATION GOES HERE */
+
+    "Refills: 0 ",
+    "Refills: 0" + CHAR(10)
+),
+    "Refills: 1 ",
+    "Refills: 1" + CHAR(10)
+),
+    "Refills: 2 ",
+    "Refills: 2" + CHAR(10)
+),
+    "Refills: 3 ",
+    "Refills: 3" + CHAR(10)
+),
+    "Refills: 4 ",
+    "Refills: 4" + CHAR(10)
+),
+    "Refills: 5 ",
+    "Refills: 5" + CHAR(10)
+),
+    "Refills: 6 ",
+    "Refills: 6" + CHAR(10)
+),
+    "Refills: 7 ",
+    "Refills: 7" + CHAR(10)
+),
+    "Refills: 8 ",
+    "Refills: 8" + CHAR(10)
+),
+    "Refills: 9 ",
+    "Refills: 9" + CHAR(10)
+),
+    "Refills: 10 ",
+    "Refills: 10" + CHAR(10)
+),
+    "Refills: 11 ",
+    "Refills: 11" + CHAR(10)
+),
+    "Refills: 12 ",
+    "Refills: 12" + CHAR(10)
+)
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,28 @@
+IF MIN([Member Exists]) = 0 THEN
+
+    "⚠ Member Card Number not found. Please verify the number and try again."
+
+ELSEIF
+    COUNTD(
+        IF STR([MEM_NUMBER]) = [Member_Card_Number]
+        THEN [Discharge_Date]
+        END
+    ) = 0
+THEN
+
+    "Member found. Please select a discharge date."
+
+ELSEIF
+    COUNTD(
+        IF STR([MEM_NUMBER]) = [Member_Card_Number]
+        THEN [Discharge_Date]
+        END
+    ) > 1
+THEN
+
+    "Member found. Please select one specific discharge date."
+
+ELSE
+    ""
+
+END

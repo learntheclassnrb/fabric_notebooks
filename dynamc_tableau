@@ -26,3 +26,17 @@ ELSE
     ""
 
 END
+
+
+
+
+
+IF MIN([MEMBER_COUNT]) = 0 THEN
+
+    "⚠ No records found. Please recheck the Member Card Number."
+
+ELSE
+
+    "Member found. Please select a specific discharge date to view the report."
+
+END

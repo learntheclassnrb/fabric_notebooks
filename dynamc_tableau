@@ -11,3 +11,18 @@ ELSE
     "⚠ Invalid Member Card Number. Please verify the number and try again."
 
 END
+
+
+IF COUNT([PAT_ENC_CSN_ID]) = 0 THEN
+
+    "⚠ Invalid Member Card Number. Please verify the number and try again."
+
+ELSEIF COUNTD([Discharge_Date]) > 1 THEN
+
+    "Member found. Please select a specific discharge date to view the report."
+
+ELSE
+
+    ""
+
+END

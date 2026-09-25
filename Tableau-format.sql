@@ -12,6 +12,126 @@ REPLACE(
 REPLACE(
 REPLACE(
 
+    IFNULL([formatted_text], ""),
+
+    "START taking these medications",
+    CHAR(10) + CHAR(10) +
+    "START TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Start taking these medications",
+    CHAR(10) + CHAR(10) +
+    "START TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "CHANGE how you take these medications",
+    CHAR(10) + CHAR(10) +
+    "CHANGE HOW YOU TAKE THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Change how you take these medications",
+    CHAR(10) + CHAR(10) +
+    "CHANGE HOW YOU TAKE THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "CONTINUE taking these medications",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Continue taking these medications",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "STOP taking these medications",
+    CHAR(10) + CHAR(10) +
+    "STOP TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Stop taking these medications",
+    CHAR(10) + CHAR(10) +
+    "STOP TAKING THESE MEDICATIONS" +
+    CHAR(10)
+),
+
+    "CONTINUE these medications which have CHANGED",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE - CHANGED MEDICATIONS" +
+    CHAR(10)
+),
+
+    "CONTINUE these medications which have NOT CHANGED",
+    CHAR(10) + CHAR(10) +
+    "CONTINUE - UNCHANGED MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Current Discharge Medication List",
+    CHAR(10) + CHAR(10) +
+    "CURRENT DISCHARGE MEDICATION LIST" +
+    CHAR(10)
+),
+
+    "Home Meds Medication List",
+    CHAR(10) + CHAR(10) +
+    "HOME MEDICATIONS" +
+    CHAR(10)
+),
+
+    "Home Meds",
+    CHAR(10) + CHAR(10) +
+    "HOME MEDICATIONS" +
+    CHAR(10)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+REPLACE(
+
     /* YOUR ENTIRE CURRENT WORKING CALCULATION GOES HERE */
 
     "Refills: 0 ",

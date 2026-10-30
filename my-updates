@@ -1,0 +1,35 @@
+Hi [Manager's Name],
+
+Here is my weekly status update.
+
+1. Activities Completed This Week
+
+1. Met with Muthu Nagarajan and went through the DSD overview and Planisware to gain a better understanding of the applications, their functionality, and how they fit into the broader data ecosystem.
+2. Met with Brian and Akhil for a POC touchpoint to discuss progress, technical direction, and upcoming activities.
+3. Participated in an architectural review of the Enova harness and provided feedback on the proposed architecture and implementation approach.
+4. Met with Pavan for an EDW overview, focusing on the architecture, data integration processes, and how data from multiple source systems is consolidated into the enterprise data warehouse.
+5. Completed the previously planned knowledge-transfer and onboarding activities, including:
+   - Reviewed DSD/DocLink and related business processes.
+   - Explored DES and how to retrieve relevant fields for upcoming project work.
+   - Gained an overview of WC and its relationship with DSD.
+   - Participated in the EDW walkthrough with GMSS.
+   - Reviewed the unstructured data pipeline notebook with Brian to understand the ingestion and consumption of CAD drawings as part of the POC.
+   - Reviewed the documentation shared by Brian to gain a better understanding of the business processes and the organization.
+
+2. Planned Activities for Next Week
+
+1. Participate in a working session with Akhil to advance the POC, review the technical approach, and align on the next implementation steps.
+2. Follow up on all required system and platform access to ensure the necessary environments and resources are available to support project execution.
+3. Meet with Brian to continue discussions on the unstructured data POC, pipeline implementation, and ingestion and consumption of CAD drawings.
+4. Continue deepening my understanding of the existing data architecture, source systems, and their integration with the EDW.
+5. Translate the knowledge gained during onboarding and technical discussions into actionable architectural and implementation recommendations for the POC.
+
+3. Challenges / Blockers
+
+Access provisioning has been a challenge and has affected the pace at which I can fully engage with some of the technical environments and project activities. I am following up to ensure all outstanding access requirements are addressed so that I can progress with the POC and related technical work.
+
+4. Overall Progress
+
+Overall, I have made good progress with onboarding, understanding the enterprise data landscape, and engaging with the team on the POC and architectural discussions. The knowledge-transfer sessions have provided useful context on the existing applications, data flows, and integration patterns.
+
+My focus next week will be on transitioning further from onboarding and knowledge gathering into hands-on POC activities and architectural contributions.
